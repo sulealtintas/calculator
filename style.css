@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    padding: 15px;
+    padding: 140px 15px 15px 15px;
     background-color: #f7f7f7;
 }
 
@@ -30,7 +30,9 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     margin: 5px;
-    padding-top: 140px;
+    padding: 8px 0;
+    background-color: #efefef;
+    border-radius: 20px;
 }
 
 .display p {
