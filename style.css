@@ -17,7 +17,7 @@ body {
     flex-direction: column;
     border-radius: 20px;
     padding: 15px;
-    background-color: white;
+    background-color: #f7f7f7;
 }
 
 .button-wrapper {
@@ -30,7 +30,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: #E9FCFD35;
+;
     border-radius: 20px;
     margin: 5px;
     padding-top: 140px;
@@ -46,14 +46,11 @@ body {
 button {
     padding: 20px 20px;
     border-radius: 50%;
-    margin: 1px;
+    margin: 2px;
     background-color: #ffffff;
     box-sizing: border-box;
     border: none;
-}
-
-.number, .decimal {
-    border: 2px solid #e9fcfd;
+    box-shadow: 1px 1px #d9d9d9;
 }
 
 .operator {
@@ -61,7 +58,7 @@ button {
 }
 
 button:hover {
-    background-color: #f3fcfd;
+    background-color: #e3e3e3;
 }
 
 .operator:hover, .equals:hover {
