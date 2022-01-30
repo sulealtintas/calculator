@@ -68,7 +68,7 @@ button:hover {
     background-color: hsl(0, 0%, 90%);
 }
 
-.operator:hover {
+.operator:hover, .clear:hover {
     background-color: hsl(200, 100%, 83%);
 }
 
