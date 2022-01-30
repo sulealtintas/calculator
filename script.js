@@ -65,6 +65,13 @@ buttons.forEach(button => {
             num2 = "";
             op = "";
         }
+        else if (button.classList.contains("clear")) {
+            currentVal = "";
+            num1 = "";
+            num2 = "";
+            op = "";
+            displayVal.textContent = "";
+        }
         console.log(`currentVal: ${currentVal}, num1: ${num1}, num2: ${num2}, op: ${op}`);
     })
 })
