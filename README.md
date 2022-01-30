@@ -8,3 +8,4 @@ Live version: https://nc-sua.github.io/odin-calculator/
 - +/- button
 - Handle overflow and sizing
 - Keyboard support
+- Nicer font and symbols
