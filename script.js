@@ -36,6 +36,7 @@ const buttons = document.querySelectorAll("button");
 const displayVal = document.querySelector(".display p");
 
 let currentVal = "";
+let result = "";
 let num1 = "";
 let num2 = "";
 let op = "";
@@ -43,13 +44,21 @@ let op = "";
 buttons.forEach(button => {
     button.addEventListener("click", function () {
         if (button.classList.contains("number")) {
+            if (result) {
+                currentVal = "";
+                result = "";
+                num1 = "";
+                num2 = "";
+                op = "";
+            }
             currentVal += this.dataset.value;
             displayVal.textContent = currentVal;
         }
         else if (button.classList.contains("operator")) {
             if (num1 && op) {
                 num2 = currentVal;
-                currentVal = operate(num1,num2,op);
+                result = operate(num1,num2,op);
+                currentVal = result;
                 displayVal.textContent = currentVal;
                 num2 = "";
             }
@@ -59,7 +68,8 @@ buttons.forEach(button => {
         }
         else if (button.classList.contains("equals")) {
             num2 = currentVal;
-            currentVal = operate(num1,num2,op);
+            result = operate(num1,num2,op);
+            currentVal = result;
             displayVal.textContent = currentVal;
             num1 = currentVal;
             num2 = "";
@@ -67,6 +77,7 @@ buttons.forEach(button => {
         }
         else if (button.classList.contains("clear")) {
             currentVal = "";
+            result = "";
             num1 = "";
             num2 = "";
             op = "";
