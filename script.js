@@ -83,6 +83,11 @@ buttons.forEach(button => {
             op = "";
             displayVal.textContent = "";
         }
+        else if (button.classList.contains("decimal")) {
+            if (!currentVal.includes("."))
+            currentVal += ".";
+            displayVal.textContent = currentVal;
+        }
         console.log(`currentVal: ${currentVal}, num1: ${num1}, num2: ${num2}, op: ${op}`);
     })
 })
