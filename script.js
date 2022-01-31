@@ -63,12 +63,14 @@ buttons.forEach(button => {
             }
         }
         else if (button.classList.contains("equals")) {
-            num2 = currentVal;
-            currentVal = operate(num1,num2,op);
-            displayVal.textContent = currentVal;
-            num1 = currentVal;
-            num2 = "";
-            op = "";
+            if (currentVal && num1 && op) {
+                num2 = currentVal;
+                currentVal = operate(num1,num2,op);
+                displayVal.textContent = currentVal;
+                num1 = currentVal;
+                num2 = "";
+                op = "";
+            }
         }
         else if (button.classList.contains("clear")) {
             currentVal = "";
