@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".operator, .number");
 const displayVal = document.querySelector(".display p");
 
 let currentVal = "";
@@ -113,6 +113,19 @@ const calculate = function (type, value) {
                 currentVal = "-" + currentVal;
                 displayVal.textContent = currentVal;
             }
+            break;
+
+        case "backspace":
+            if (currentVal && num1 && !op) {
+                clearInput();
+                currentVal = "";
+                displayVal.textContent = "";
+            } else {
+                currentVal = currentVal.slice(0,currentVal.length-1);
+                displayVal.textContent = currentVal;
+                break;
+            }
+
     }
     console.log(`currentVal: ${currentVal}, num1: ${num1}, num2: ${num2}, op: ${op}`);
 
@@ -130,7 +143,7 @@ window.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
         calculate("equals");
     } else {
-        const key = document.querySelector(`button[data-value="${e.key}"]`);
+        const key = document.querySelector(`div[data-value="${e.key}"]`);
         if (!key) return;
         const type = key.dataset.type;
         const value = key.dataset.value;
