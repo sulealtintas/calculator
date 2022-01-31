@@ -10,10 +10,6 @@ body {
     background-image: linear-gradient(to right top, #ebf9ff, #c4eafd, #9cdbfd, #70cbfe, #33bbff);
 }
 
-.number p, .operator p {
-    margin: 20px;
-}
-
 .calculator {
     display: flex;
     flex-direction: column;
@@ -58,17 +54,15 @@ body {
     font-size: 16px;
 }
 
-.backspace {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.number p, .operator p {
+    margin: 20px;
 }
 
 .operator {
     background-color: hsl(200, 100%, 90%);
 }
 
-#equals {
+.equals {
     grid-column: 3/5;
     border-radius: 20px;
     background-color: hsl(200, 100%, 66%);
