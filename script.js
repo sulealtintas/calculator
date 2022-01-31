@@ -50,7 +50,7 @@ const calculate = function (type, value) {
     switch (type) {
         case "number":
             if (currentVal && num1 && !op) {
-                clearInput()
+                clearInput();
                 currentVal = value.toString();
                 displayVal.textContent = currentVal;
             } else {
@@ -86,14 +86,14 @@ const calculate = function (type, value) {
             break;
 
         case "clear":
-            clearInput()
+            clearInput();
             currentVal = "";
             displayVal.textContent = "";
             break;
 
         case "decimal":
             if (currentVal && num1 && !op) {
-                clearInput()
+                clearInput();
                 currentVal = "0.";
                 displayVal.textContent = currentVal;
             } else if (!currentVal) {
@@ -104,6 +104,15 @@ const calculate = function (type, value) {
                 displayVal.textContent = currentVal;
             }
             break;
+
+        case "sign":
+            if (currentVal.startsWith("-")) {
+                currentVal = currentVal.slice(1,currentVal.length);
+                displayVal.textContent = currentVal;
+            } else {
+                currentVal = "-" + currentVal;
+                displayVal.textContent = currentVal;
+            }
     }
     console.log(`currentVal: ${currentVal}, num1: ${num1}, num2: ${num2}, op: ${op}`);
 
