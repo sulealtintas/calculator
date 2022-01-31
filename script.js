@@ -101,9 +101,14 @@ buttons.forEach(button => {
 })
 
 window.addEventListener("keydown", function (e) {
-    const key = document.querySelector(`button[data-value="${e.key}"]`);
-    if (!key) return;
-    const type = key.dataset.type;
-    const value = key.dataset.value;
-    calculate(type, value);
+    if (e.key === "Enter") {
+        calculate("equals");
+    }
+    else {
+        const key = document.querySelector(`button[data-value="${e.key}"]`);
+        if (!key) return;
+        const type = key.dataset.type;
+        const value = key.dataset.value;
+        calculate(type, value);
+    }
 })
