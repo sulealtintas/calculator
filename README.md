@@ -5,8 +5,8 @@ Live version: https://nc-sua.github.io/odin-calculator/
 
 ## To do
 - ~~Disable appending to displayed value after completed calculation~~
-- Backspace button (replaces non-functioning square root)
-- +/- button
+- ~~Backspace button (replaces non-functioning square root)~~
+- ~~+/- button~~
 - Handle overflow and sizing
 - ~~Keyboard support~~
 - Nicer font and symbols
