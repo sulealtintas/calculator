@@ -6,6 +6,12 @@ let num1 = "";
 let num2 = "";
 let op = "";
 
+const clearInput = function () {
+    num1 = "";
+    num2 = "";
+    op = "";
+}
+
 const add = function (n1, n2) {
     return n1 + n2;
 };
@@ -43,14 +49,20 @@ const operate = function (n1, n2, op) {
 const calculate = function (type, value) {
     switch (type) {
         case "number":
-            currentVal += value;
-            displayVal.textContent = currentVal;
+            if (currentVal && num1 && !op) {
+                clearInput()
+                currentVal = value.toString();
+                displayVal.textContent = currentVal;
+            } else {
+                currentVal += value;
+                displayVal.textContent = currentVal;
+            }
             break;
 
         case "operator":
             if (currentVal && num1 && op) {
                 num2 = currentVal;
-                currentVal = operate(num1, num2, op);
+                currentVal = operate(num1, num2, op).toString();
                 displayVal.textContent = currentVal;
                 num2 = "";
             } else if (num1 && op) {
@@ -66,7 +78,7 @@ const calculate = function (type, value) {
         case "equals":
             if (currentVal && num1 && op) {
                 num2 = currentVal;
-                currentVal = operate(num1, num2, op);
+                currentVal = operate(num1, num2, op).toString();
                 displayVal.textContent = currentVal;
                 num1 = currentVal;
                 num2 = "";
@@ -75,27 +87,33 @@ const calculate = function (type, value) {
             break;
 
         case "clear":
+            clearInput()
             currentVal = "";
-            num1 = "";
-            num2 = "";
-            op = "";
             displayVal.textContent = "";
             break;
 
         case "decimal":
-            if (!currentVal.includes("."))
-                currentVal += ".";
-            displayVal.textContent = currentVal;
+            if (currentVal && num1 && !op) {
+                clearInput()
+                currentVal = "0.";
+                displayVal.textContent = currentVal;
+            } else if (!currentVal) {
+                currentVal = "0.";
+                displayVal.textContent = currentVal;
+            } else if (!currentVal.includes(value)) {
+                currentVal += value;
+                displayVal.textContent = currentVal;
+            }
             break;
     }
     console.log(`currentVal: ${currentVal}, num1: ${num1}, num2: ${num2}, op: ${op}`);
+
 }
 
 buttons.forEach(button => {
     button.addEventListener("click", function () {
         const type = button.dataset.type;
         const value = button.dataset.value;
-        console.log(type, value);
         calculate(type, value);
     })
 })
@@ -103,8 +121,7 @@ buttons.forEach(button => {
 window.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
         calculate("equals");
-    }
-    else {
+    } else {
         const key = document.querySelector(`button[data-value="${e.key}"]`);
         if (!key) return;
         const type = key.dataset.type;
