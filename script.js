@@ -41,7 +41,7 @@ const operate = function (n1, n2, op) {
 }
 
 const calculate = function (type, value) {
-    switch(type) {
+    switch (type) {
         case "number":
             currentVal += value;
             displayVal.textContent = currentVal;
@@ -50,11 +50,10 @@ const calculate = function (type, value) {
         case "operator":
             if (currentVal && num1 && op) {
                 num2 = currentVal;
-                currentVal = operate(num1,num2,op);
+                currentVal = operate(num1, num2, op);
                 displayVal.textContent = currentVal;
                 num2 = "";
-            }
-            else if (num1 && op) {
+            } else if (num1 && op) {
                 op = value;
             }
             if (currentVal) {
@@ -67,7 +66,7 @@ const calculate = function (type, value) {
         case "equals":
             if (currentVal && num1 && op) {
                 num2 = currentVal;
-                currentVal = operate(num1,num2,op);
+                currentVal = operate(num1, num2, op);
                 displayVal.textContent = currentVal;
                 num1 = currentVal;
                 num2 = "";
@@ -96,7 +95,15 @@ buttons.forEach(button => {
     button.addEventListener("click", function () {
         const type = this.dataset.type;
         const value = this.dataset.value;
-        console.log(type,value);
-        calculate(type,value);
+        console.log(type, value);
+        calculate(type, value);
     })
+})
+
+window.addEventListener("keydown", function (e) {
+    const key = document.querySelector(`button[data-value="${e.key}"]`);
+    if (!key) return;
+    const type = key.dataset.type;
+    const value = key.dataset.value;
+    calculate(type, value);
 })
