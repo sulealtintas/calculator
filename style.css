@@ -47,12 +47,15 @@ body {
 }
 
 .number, .operator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 50%;
     margin: 2px;
     background-color: #ffffff;
     border: none;
     box-shadow: 1px 1px #d9d9d9;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .backspace {
@@ -76,16 +79,11 @@ body {
     background-color: hsl(0, 0%, 90%);
 }
 
-.operator:hover, .clear:hover {
+.operator:hover {
     background-color: hsl(200, 100%, 83%);
 }
 
 .equals:hover {
     background-color: hsl(200, 100%, 60%);
     color: #fff;
-}
-
-.backspace {
-    display: flex;
-    justify-content: center;
 }
