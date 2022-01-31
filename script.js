@@ -47,15 +47,20 @@ buttons.forEach(button => {
             displayVal.textContent = currentVal;
         }
         else if (button.classList.contains("operator")) {
-            if (num1 && op) {
+            if (currentVal && num1 && op) {
                 num2 = currentVal;
                 currentVal = operate(num1,num2,op);
                 displayVal.textContent = currentVal;
                 num2 = "";
             }
-            num1 = currentVal;
-            op = this.dataset.operator;
-            currentVal = "";
+            else if (num1 && op) {
+                op = this.dataset.operator;
+            }
+            if (currentVal) {
+                num1 = currentVal;
+                op = this.dataset.operator;
+                currentVal = "";
+            }
         }
         else if (button.classList.contains("equals")) {
             num2 = currentVal;
