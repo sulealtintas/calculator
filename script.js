@@ -93,8 +93,8 @@ const calculate = function (type, value) {
 
 buttons.forEach(button => {
     button.addEventListener("click", function () {
-        const type = this.dataset.type;
-        const value = this.dataset.value;
+        const type = button.dataset.type;
+        const value = button.dataset.value;
         console.log(type, value);
         calculate(type, value);
     })
