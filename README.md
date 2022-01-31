@@ -4,7 +4,7 @@ This is my solution to Odin's [Calculator project](https://www.theodinproject.co
 Live version: https://nc-sua.github.io/odin-calculator/
 
 ## To do
-- Disable appending to displayed value after completed calculation
+- ~~Disable appending to displayed value after completed calculation~~
 - Backspace button (replaces non-functioning square root)
 - +/- button
 - Handle overflow and sizing
