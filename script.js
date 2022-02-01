@@ -18,36 +18,44 @@ const round = function (number, decimals) {
 }
 
 const add = function (n1, n2) {
-    return round(n1 + n2, decimals);
+    return n1 + n2;
 };
 
 const subtract = function (n1, n2) {
-    return round(n1 - n2, decimals);
+    return n1 - n2;
 };
 
 const multiply = function (n1, n2) {
-    return round(n1 * n2, decimals);
+    return n1 * n2;
 };
 
 const divide = function (n1, n2) {
-    return round(n1 / n2, decimals);
+    return n1 / n2;
 };
 
 const operate = function (n1, n2, op) {
     n1 = +n1;
     n2 = +n2;
+    let result;
 
     if (op === "+") {
-        return add(n1, n2);
+        result = add(n1, n2);
     }
     if (op === "-") {
-        return subtract(n1, n2);
+        result = subtract(n1, n2);
     }
     if (op === "*") {
-        return multiply(n1, n2);
+        result = multiply(n1, n2);
     }
     if (op === "/") {
-        return divide(n1, n2);
+        result = divide(n1, n2);
+    }
+
+    if (result.toString().length <= 17) {
+        console.log(result.toString().length);
+        return round(result, decimals).toString();
+    } else {
+        return result.toExponential(4).toString();
     }
 }
 
@@ -56,7 +64,7 @@ const calculate = function (type, value) {
         case "number":
             if (currentVal && n1 && !op) {
                 clearInput();
-                currentVal = value.toString();
+                currentVal = value;
                 displayVal.textContent = currentVal;
             } else if (currentVal.length < 15) {
                 currentVal += value;
@@ -67,7 +75,7 @@ const calculate = function (type, value) {
         case "operator":
             if (currentVal && n1 && op) {
                 n2 = currentVal;
-                currentVal = operate(n1, n2, op).toString();
+                currentVal = operate(n1, n2, op);
                 displayVal.textContent = currentVal;
                 n2 = "";
             } else if (n1 && op) {
@@ -83,7 +91,7 @@ const calculate = function (type, value) {
         case "equals":
             if (currentVal && n1 && op) {
                 n2 = currentVal;
-                currentVal = operate(n1, n2, op).toString();
+                currentVal = operate(n1, n2, op);
                 displayVal.textContent = currentVal;
                 clearInput();
                 n1 = currentVal;
