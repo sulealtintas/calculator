@@ -107,7 +107,7 @@ const calculate = function (type, value) {
 
         case "sign":
             if (currentVal.startsWith("-")) {
-                currentVal = currentVal.slice(1,currentVal.length);
+                currentVal = currentVal.slice(1, currentVal.length);
                 displayVal.textContent = currentVal;
             } else {
                 currentVal = "-" + currentVal;
@@ -120,16 +120,15 @@ const calculate = function (type, value) {
                 clearInput();
                 currentVal = "";
                 displayVal.textContent = "";
-            } else {
-                currentVal = currentVal.slice(0,currentVal.length-1);
-                displayVal.textContent = currentVal;
+            } else if (!currentVal && num1 && op) {
                 break;
+            } else {
+                currentVal = currentVal.slice(0, currentVal.length - 1);
+                displayVal.textContent = currentVal;
             }
-
     }
-    console.log(`currentVal: ${currentVal}, num1: ${num1}, num2: ${num2}, op: ${op}`);
-
 }
+
 
 buttons.forEach(button => {
     button.addEventListener("click", function () {
