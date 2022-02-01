@@ -50,7 +50,7 @@ body {
     margin: 0.2vh;
     background-color: #ffffff;
     border: none;
-    box-shadow: 1px 1px #d9d9d9;
+    box-shadow: 0.1vh 0.1vh #d9d9d9;
     font-size: 1.7vh;
 }
 
@@ -80,4 +80,8 @@ body {
 .equals:hover {
     background-color: hsl(200, 100%, 60%);
     color: #fff;
+}
+
+img {
+    width: 1.7vh;
 }
