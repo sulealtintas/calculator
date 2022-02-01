@@ -1,31 +1,36 @@
 const buttons = document.querySelectorAll(".operator, .number");
 const displayVal = document.querySelector(".display p");
+const decimals = 4;
 
 let currentVal = "";
-let num1 = "";
-let num2 = "";
+let n1 = "";
+let n2 = "";
 let op = "";
 
 const clearInput = function () {
-    num1 = "";
-    num2 = "";
+    n1 = "";
+    n2 = "";
     op = "";
 }
 
+const round = function (number, decimals) {
+    return Math.round(number * 10 ** decimals) / 10 ** decimals;
+}
+
 const add = function (n1, n2) {
-    return n1 + n2;
+    return round(n1 + n2, decimals);
 };
 
 const subtract = function (n1, n2) {
-    return n1 - n2;
+    return round(n1 - n2, decimals);
 };
 
 const multiply = function (n1, n2) {
-    return n1 * n2;
+    return round(n1 * n2, decimals);
 };
 
 const divide = function (n1, n2) {
-    return n1 / n2;
+    return round(n1 / n2, decimals);
 };
 
 const operate = function (n1, n2, op) {
@@ -49,39 +54,39 @@ const operate = function (n1, n2, op) {
 const calculate = function (type, value) {
     switch (type) {
         case "number":
-            if (currentVal && num1 && !op) {
+            if (currentVal && n1 && !op) {
                 clearInput();
                 currentVal = value.toString();
                 displayVal.textContent = currentVal;
-            } else {
+            } else if (currentVal.length < 15) {
                 currentVal += value;
                 displayVal.textContent = currentVal;
             }
             break;
 
         case "operator":
-            if (currentVal && num1 && op) {
-                num2 = currentVal;
-                currentVal = operate(num1, num2, op).toString();
+            if (currentVal && n1 && op) {
+                n2 = currentVal;
+                currentVal = operate(n1, n2, op).toString();
                 displayVal.textContent = currentVal;
-                num2 = "";
-            } else if (num1 && op) {
+                n2 = "";
+            } else if (n1 && op) {
                 op = value;
             }
             if (currentVal) {
-                num1 = currentVal;
+                n1 = currentVal;
                 op = value;
                 currentVal = "";
             }
             break;
 
         case "equals":
-            if (currentVal && num1 && op) {
-                num2 = currentVal;
-                currentVal = operate(num1, num2, op).toString();
+            if (currentVal && n1 && op) {
+                n2 = currentVal;
+                currentVal = operate(n1, n2, op).toString();
                 displayVal.textContent = currentVal;
                 clearInput();
-                num1 = currentVal;
+                n1 = currentVal;
             }
             break;
 
@@ -92,14 +97,14 @@ const calculate = function (type, value) {
             break;
 
         case "decimal":
-            if (currentVal && num1 && !op) {
+            if (currentVal && n1 && !op) {
                 clearInput();
                 currentVal = "0.";
                 displayVal.textContent = currentVal;
             } else if (!currentVal) {
                 currentVal = "0.";
                 displayVal.textContent = currentVal;
-            } else if (!currentVal.includes(value)) {
+            } else if (!currentVal.includes(value) && currentVal.length < 15) {
                 currentVal += value;
                 displayVal.textContent = currentVal;
             }
@@ -116,11 +121,11 @@ const calculate = function (type, value) {
             break;
 
         case "backspace":
-            if (currentVal && num1 && !op) {
+            if (currentVal && n1 && !op) {
                 clearInput();
                 currentVal = "";
                 displayVal.textContent = "";
-            } else if (!currentVal && num1 && op) {
+            } else if (!currentVal && n1 && op) {
                 break;
             } else {
                 currentVal = currentVal.slice(0, currentVal.length - 1);
