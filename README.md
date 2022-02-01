@@ -8,5 +8,7 @@ Live version: https://nc-sua.github.io/odin-calculator/
 - ~~Backspace button (replaces non-functioning square root)~~
 - ~~+/- button~~
 - Handle overflow and sizing
+  - ~~limit input size~~
+  - use exponential notation when calculation result exceeds limit
 - ~~Keyboard support~~
 - Nicer font and symbols
