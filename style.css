@@ -13,8 +13,8 @@ body {
 .calculator {
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
-    padding: 140px 15px 15px 15px;
+    border-radius: 2vh;
+    padding: 13vh 1.4vh 1.4vh 1.4vh;
     background-color: #f7f7f7;
 }
 
@@ -28,18 +28,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 48px;
-    margin: 5px;
-    padding: 8px 0;
+    height: 5vh;
+    padding: 0.7vh 0;
     background-color: #efefef;
-    border-radius: 20px;
+    border-radius: 2vh;
 }
 
 .display p {
     text-align: right;
-    font-size: 24px;
-    margin: 10px;
+    font-size: 2.5vh;
+    margin: 0.9vh;
     color: #5e5e5e;
+    overflow: hidden;
 }
 
 .number, .operator {
@@ -47,15 +47,15 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    margin: 2px;
+    margin: 0.2vh;
     background-color: #ffffff;
     border: none;
     box-shadow: 1px 1px #d9d9d9;
-    font-size: 16px;
+    font-size: 1.7vh;
 }
 
 .number p, .operator p {
-    margin: 20px;
+    margin: 2vh;
 }
 
 .operator {
@@ -64,7 +64,7 @@ body {
 
 .equals {
     grid-column: 3/5;
-    border-radius: 20px;
+    border-radius: 2vh;
     background-color: hsl(200, 100%, 66%);
     color: #fff;
 }
