@@ -56,7 +56,7 @@ body {
 }
 
 .number p, .operator p {
-    margin: 2vh;
+    margin: 2vh 2.1vh;
 }
 
 .operator {
