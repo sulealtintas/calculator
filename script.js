@@ -51,7 +51,7 @@ const operate = function (n1, n2, op) {
         result = divide(n1, n2);
     }
 
-    if (result.toString().length <= 17) {
+    if (result.toString().length <= 16) {
         console.log(result.toString().length);
         return round(result, decimals).toString();
     } else {
