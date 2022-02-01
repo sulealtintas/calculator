@@ -51,11 +51,13 @@ const operate = function (n1, n2, op) {
         result = divide(n1, n2);
     }
 
-    if (result.toString().length <= 16) {
-        console.log(result.toString().length);
-        return round(result, decimals).toString();
+    result = round(result,decimals).toString();
+
+    if (result.length <= 16) {
+        return result;
     } else {
-        return result.toExponential(4).toString();
+        console.log(result);
+        return (+result).toExponential(decimals).toString();
     }
 }
 
