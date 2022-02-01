@@ -3,7 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Calculator</title>
-        <link rel="stylesheet" href="style.css">
+        <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap" rel="stylesheet">
         <script src="script.js" defer></script>
     </head>
     <body>
@@ -11,7 +14,7 @@
             <div class="display"><p></p></div>
             <div class="wrapper">
                 <div class="operator" data-type="clear"><p>AC</p></div>
-                <div class="operator" data-type="backspace" data-value="Backspace"><img
+                <div class="operator" data-type="backspace" data-value="Backspace"><img id="backspace-icon"
                         src="assets/keyboard_backspace_black_18dp.svg" alt="backspace icon"></div>
                 <div class="operator" data-type="sign"><p>+/-</p></div>
                 <div class="operator" data-type="operator" data-value="/"><p>/</p></div>
